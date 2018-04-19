@@ -2,18 +2,16 @@
 	<div class="tabbar-user">
 		<user-header :isLogin="isLogin" />
 		<order-group />
-		<ecoupon-group />
 		<user-module />
-		<van-button  size="large" class="tabbar-user__quit" v-if="isLogin" @click="quit">退出当前账户</van-button>
+		<van-button size="large" class="tabbar-user__quit" v-if="isLogin" @click="quit">退出当前账户</van-button>
 	</div>
 </template>
 
 <script>
 	import userHeader from "./tabbar-user-header";
 	import orderGroup from "./tabbar-user-order";
-	import ecouponGroup from "./tabbar-user-ecoupon";
 	import userModule from "./tabbar-user-module";
-	
+
 	export default {
 
 		data() {
@@ -21,11 +19,11 @@
 				isLogin: false,
 			}
 		},
-		
+
 		activated(){
 			this.getLoginStatus();
 		},
-		
+
 		methods: {
 			quit(){
 				this.$util.removeLocalStorage('Authorization', 'user_id', 'avatar', 'background_image', 'nick_name');
@@ -39,8 +37,7 @@
 		components: {
 			[userHeader.name]: userHeader,
 			[orderGroup.name]: orderGroup,
-			[ecouponGroup.name]: ecouponGroup,
-			[userModule.name]: userModule,
+			[userModule.name]: userModule
 		}
 	}
 

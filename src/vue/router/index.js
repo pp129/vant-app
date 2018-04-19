@@ -23,7 +23,7 @@ RouterModel.beforeEach((to, from, next) => {
 		user_id
 	} = Vue.prototype.$util.getLocalStorage('Authorization', 'user_id')
 	if (!Authorization && !user_id) {
-		if (to.meta.login) {
+		if (to.meta.login) { //===> user.js/user-information
 			RouterModel.push({
 				name: 'login',
 				query: {
